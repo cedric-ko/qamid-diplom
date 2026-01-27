@@ -33,7 +33,7 @@ public class SQLHelper {
     public static void cleanAllTables() {
         try (var conn = getConnection()) {
             runner.execute(conn, "DELETE FROM payment_entity");
-            runner.execute(conn, "DELETE credit_request_entity");
+            runner.execute(conn, "DELETE FROM credit_request_entity");
             runner.execute(conn, "DELETE FROM order_entity");
         }
     }

@@ -227,7 +227,27 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("22. Отправка формы со спецсимволом в поле года")
+    @DisplayName("21. Отправка формы с латинской буквой в поле года")
+    void shouldShowYearErrorForLatinLetter() {
+        paymentPage.fillFormWithValidData();
+        paymentPage.clearYearField();
+        paymentPage.setYear("a6");
+        paymentPage.clickContinue();
+        paymentPage.yearErrorNotification("Неверный формат");
+    }
+
+        @Test
+        @DisplayName("22. Отправка формы с кириллической буквой в поле года")
+        void shouldShowYearErrorForCyrillicLetter() {
+            paymentPage.fillFormWithValidData();
+            paymentPage.clearYearField();
+            paymentPage.setYear("ф6");
+            paymentPage.clickContinue();
+            paymentPage.yearErrorNotification("Неверный формат");
+        }
+
+    @Test
+    @DisplayName("23. Отправка формы со спецсимволом в поле года")
     void shouldShowYearErrorForSimbol() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearYearField();
@@ -237,7 +257,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("23. Отправка формы с одной буквой в поле владельца")
+    @DisplayName("24. Отправка формы с одной буквой в поле владельца")
     void shouldSuccessfullyPayWithSingleLetterHolder() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearHolderField();
@@ -247,7 +267,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("24. Отправка формы со значением из 31 символа в поле владельца")
+    @DisplayName("25. Отправка формы со значением из 31 символа в поле владельца")
     void shouldShowHolderErrorFor31Chars() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearHolderField();
@@ -257,7 +277,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("25. Отправка формы с пустым полем владельца")
+    @DisplayName("26. Отправка формы с пустым полем владельца")
     void shouldShowHolderRequiredErrorForEmpty() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearHolderField();
@@ -267,7 +287,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("26. Отправка формы с кириллической буквой в поле владельца")
+    @DisplayName("27. Отправка формы с кириллической буквой в поле владельца")
     void shouldShowHolderErrorForCyrillicLetter() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearHolderField();
@@ -277,7 +297,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("27. Отправка формы со спецсимволом в поле владельца")
+    @DisplayName("28. Отправка формы со спецсимволом в поле владельца")
     void shouldShowHolderErrorForSimbol() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearHolderField();
@@ -287,7 +307,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("28. Отправка формы с цифрой в поле владельца")
+    @DisplayName("29. Отправка формы с цифрой в поле владельца")
     void shouldShowHolderErrorForDigit() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearHolderField();
@@ -297,7 +317,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("29. Отправка формы с одной цифрой в поле кода валидации")
+    @DisplayName("30. Отправка формы с одной цифрой в поле кода валидации")
     void shouldShowCVCWrongFormatNotificationForSingleDigit() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearCvcField();
@@ -309,7 +329,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("30. Отправка формы с двумя цифрами в поле кода валидации")
+    @DisplayName("31. Отправка формы с двумя цифрами в поле кода валидации")
     void shouldShowCVVWrongFormatNotificationForTwoDigits() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearCvcField();
@@ -321,7 +341,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("31. Отправка формы с пустым полем кода валидации")
+    @DisplayName("32. Отправка формы с пустым полем кода валидации")
     void shouldShowCVVWrongFormatNotificationForEmptyField() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearCvcField();
@@ -331,7 +351,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("32. Отправка формы с кириллической буквой в поле кода валидации")
+    @DisplayName("33. Отправка формы с кириллической буквой в поле кода валидации")
     void shouldShowCVVWrongFormatNotificationForCyrillicLetter() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearCvcField();
@@ -341,7 +361,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("33. Отправка формы с латинской буквой в поле кода валидации")
+    @DisplayName("34. Отправка формы с латинской буквой в поле кода валидации")
     void shouldShowCVVWrongFormatNotificationForLatinLetter() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearCvcField();
@@ -351,7 +371,7 @@ public class PaymentTest {
     }
 
     @Test
-    @DisplayName("34. Отправка формы со спецсимволом в поле кода валидации")
+    @DisplayName("35. Отправка формы со спецсимволом в поле кода валидации")
     void shouldShowCVVWrongFormatNotificationForSimbol() {
         paymentPage.fillFormWithValidData();
         paymentPage.clearCvcField();
